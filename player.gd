@@ -8,12 +8,18 @@ extends CharacterBody2D
 @onready var direction = "S"
 @onready var speed = 100
 
+@onready var main: ColorRect = $Colour/Main
+@onready var right_band: ColorRect = $Colour/Right_Band
+@onready var left_band: ColorRect = $Colour/Left_Band
+@onready var main_band: ColorRect = $Colour/Main_Band
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
-
+	
 func _ready() -> void:
 	if not is_multiplayer_authority():
 		return
+	camera.call_deferred("make_current")
 
 func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
@@ -22,7 +28,6 @@ func _physics_process(_delta: float) -> void:
 	manage_camera()
 	move()
 	animations()
-	camera.make_current()
 
 func get_direction():
 	var input_vector = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
@@ -43,8 +48,13 @@ func animations():
 		sprite.play("walk")
 
 func manage_camera():
-	var dir = get_global_mouse_position() - sprite.global_position
-	sprite.rotation = dir.angle() - PI / 2
+	var angle_dir = get_global_mouse_position() - sprite.global_position
+	var angle = angle_dir.angle() - PI / 2
+	sprite.rotation = angle
+	main.rotation = angle
+	main_band.rotation = angle
+	left_band.rotation = angle
+	right_band.rotation = angle
 
 
 func move():

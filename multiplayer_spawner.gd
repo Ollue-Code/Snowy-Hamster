@@ -13,7 +13,7 @@ func spawn_player(id: int) -> void:
 		
 	var player = network_player.instantiate()
 	player.name = str(id)
-	get_node(spawn_path).add_child(player)
+	get_node(spawn_path).call_deferred("add_child", player)
 	
 	while not player.is_inside_tree():
 		await get_tree().process_frame

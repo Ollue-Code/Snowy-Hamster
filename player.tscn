@@ -45,18 +45,74 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath(".:position")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath("Sprite:frame")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Colour/Main:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Colour/Main:color")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("Colour/Right_Band:color")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath("Colour/Right_Band:rotation")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+properties/8/path = NodePath("Colour/Left_Band:rotation")
+properties/8/spawn = true
+properties/8/replication_mode = 1
+properties/9/path = NodePath("Colour/Left_Band:color")
+properties/9/spawn = true
+properties/9/replication_mode = 1
+properties/10/path = NodePath("Colour/Main_Band:color")
+properties/10/spawn = true
+properties/10/replication_mode = 1
+properties/11/path = NodePath("Colour/Main_Band:rotation")
+properties/11/spawn = true
+properties/11/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
+
+[node name="Colour" type="Node2D" parent="."]
+
+[node name="Main" type="ColorRect" parent="Colour"]
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = 12.0
+pivot_offset = Vector2(15, 21)
+
+[node name="Right_Band" type="ColorRect" parent="Colour"]
+offset_left = -18.0
+offset_top = -15.0
+offset_right = -15.0
+offset_bottom = 6.0
+pivot_offset = Vector2(18, 15)
+
+[node name="Left_Band" type="ColorRect" parent="Colour"]
+offset_left = 15.0
+offset_top = -15.0
+offset_right = 18.0
+offset_bottom = 6.0
+pivot_offset = Vector2(-15, 15)
+
+[node name="Main_Band" type="ColorRect" parent="Colour"]
+offset_left = -21.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 3.0
+pivot_offset = Vector2(21, 12)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_sweqy")
 animation = &"walk"
-frame_progress = 0.3089611
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(56, -20)
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_2hs0m")
 
