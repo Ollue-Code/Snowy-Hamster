@@ -1,0 +1,175 @@
+[gd_scene load_steps=7 format=3 uid="uid://c136ti8wjj4xo"]
+
+[ext_resource type="Script" uid="uid://ce5iupw7hiw0" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://8j3kg0je6axg" path="res://assets/Creature.png" id="2_ekxnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqqt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_l6cm7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44073376, 0.43905488, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4625
+anchor_top = 0.46388888
+anchor_right = 0.5375
+anchor_bottom = 0.5361111
+offset_right = 34.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Join" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+metadata/_edit_use_anchors_ = true
+
+[node name="Host" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Host Server"
+metadata/_edit_use_anchors_ = true
+
+[node name="Colour_Pickers" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.09921875
+anchor_bottom = 0.14444445
+offset_right = 126.475006
+offset_bottom = 168.53336
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="ColorPickerButton" parent="Control/Colour_Pickers"]
+layout_mode = 2
+text = "Colour"
+
+[node name="Main_Band" type="ColorPickerButton" parent="Control/Colour_Pickers"]
+layout_mode = 2
+text = "Colour"
+
+[node name="Right_Band" type="ColorPickerButton" parent="Control/Colour_Pickers"]
+layout_mode = 2
+text = "Colour"
+
+[node name="Left_Band" type="ColorPickerButton" parent="Control/Colour_Pickers"]
+layout_mode = 2
+text = "Colour"
+
+[node name="Player_Preview" type="Node2D" parent="Control/Colour_Pickers"]
+
+[node name="Colour" type="Node2D" parent="Control/Colour_Pickers/Player_Preview"]
+position = Vector2(122, 200)
+scale = Vector2(3.333, 3.333)
+
+[node name="Main" type="ColorRect" parent="Control/Colour_Pickers/Player_Preview/Colour"]
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = 12.0
+pivot_offset = Vector2(15, 21)
+
+[node name="Right_Band" type="ColorRect" parent="Control/Colour_Pickers/Player_Preview/Colour"]
+offset_left = -18.0
+offset_top = -15.0
+offset_right = -15.0
+offset_bottom = 6.0
+pivot_offset = Vector2(18, 15)
+
+[node name="Left_Band" type="ColorRect" parent="Control/Colour_Pickers/Player_Preview/Colour"]
+offset_left = 15.0
+offset_top = -15.0
+offset_right = 18.0
+offset_bottom = 6.0
+pivot_offset = Vector2(-15, 15)
+
+[node name="Main_Band" type="ColorRect" parent="Control/Colour_Pickers/Player_Preview/Colour"]
+offset_left = -21.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 3.0
+pivot_offset = Vector2(21, 12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Control/Colour_Pickers/Player_Preview"]
+position = Vector2(122, 200)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_bqqt6")
+animation = &"walk"
+
+[node name="IP_Popup" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+title = "Enter server IP"
+position = Vector2i(490, 434)
+size = Vector2i(300, 100)
+visible = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IP_Popup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 296.0
+offset_bottom = 96.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IP_Popup/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Enter erver IP address then press enter:"
+
+[node name="IP field" type="LineEdit" parent="IP_Popup/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/VBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="color_changed" from="Control/Colour_Pickers/Main" to="." method="_on_main_color_changed"]
+[connection signal="color_changed" from="Control/Colour_Pickers/Main_Band" to="." method="_on_main_band_color_changed"]
+[connection signal="color_changed" from="Control/Colour_Pickers/Right_Band" to="." method="_on_right_band_color_changed"]
+[connection signal="color_changed" from="Control/Colour_Pickers/Left_Band" to="." method="_on_left_band_color_changed"]
+[connection signal="text_submitted" from="IP_Popup/VBoxContainer/IP field" to="." method="_on_ip_field_text_submitted"]

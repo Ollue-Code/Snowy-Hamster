@@ -20,7 +20,8 @@ func _ready() -> void:
 	if not is_multiplayer_authority():
 		return
 	camera.call_deferred("make_current")
-
+	call_deferred("send_colours")
+	
 func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
@@ -61,3 +62,16 @@ func move():
 	var input_direction = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 	velocity = input_direction * speed
 	move_and_slide()
+
+func send_colours():
+	spawner.rpc_id(1, "set_player_colours", Local_Global.main_colour,
+	Local_Global.main_band_colour,
+	Local_Global.right_band_colour,
+	Local_Global.left_band_colour)
+
+@rpc("any_peer", "call_local") 
+func set_colours(main_colour,main_band_colour,right_band_colour,left_band_colour):
+	main.color = main_colour
+	main_band.color = main_band_colour
+	right_band.color = right_band_colour
+	left_band.color = left_band_colour

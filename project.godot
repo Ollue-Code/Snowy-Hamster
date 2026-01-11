@@ -17,17 +17,25 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Network="*res://network.gd"
-Local_Global="*res://local_global.gd"
+Network="*res://scripts/network.gd"
+Local_Global="*res://scripts/local_global.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "blue",
+"res://scenes/": "green",
+"res://scripts/": "red"
+}
+
 [gui]
 
-theme/custom_font="uid://baafrbm43btsg"
+theme/custom_font="uid://cmjxys24pxeir"
 
 [input]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cmjxys24pxeir"
-path="res://.godot/imported/PixelOperator.ttf-a69714cde5b158f06b4a7f08d8b8e62a.fontdata"
+uid="uid://cicdbritcs2p5"
+path="res://.godot/imported/PixelOperator-Bold.ttf-2ef10c959e026d0a752ec01755603112.fontdata"
 
 [deps]
 
-source_file="res://pixel_operator/PixelOperator.ttf"
-dest_files=["res://.godot/imported/PixelOperator.ttf-a69714cde5b158f06b4a7f08d8b8e62a.fontdata"]
+source_file="res://assets/pixel_operator/PixelOperator-Bold.ttf"
+dest_files=["res://.godot/imported/PixelOperator-Bold.ttf-2ef10c959e026d0a752ec01755603112.fontdata"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d4fyk1nh7n37s"]
 
-[ext_resource type="Texture2D" uid="uid://8j3kg0je6axg" path="res://Creature.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://c0haxulwfcjjn" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://8j3kg0je6axg" path="res://assets/Creature.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://c0haxulwfcjjn" path="res://scripts/player.gd" id="1_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -112,7 +112,6 @@ sprite_frames = SubResource("SpriteFrames_sweqy")
 animation = &"walk"
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
-position = Vector2(56, -20)
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_2hs0m")
 

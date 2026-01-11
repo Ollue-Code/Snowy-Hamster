@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dc1i5j2dm3e88"
-path="res://.godot/imported/PixelOperatorMono8.ttf-24e4b71bfacb75d5c3711d6aa85e41b2.fontdata"
+uid="uid://d377m7vyuu3uw"
+path="res://.godot/imported/PixelOperatorSC-Bold.ttf-add9dd17edfecadf7223362c8770efea.fontdata"
 
 [deps]
 
-source_file="res://pixel_operator/PixelOperatorMono8.ttf"
-dest_files=["res://.godot/imported/PixelOperatorMono8.ttf-24e4b71bfacb75d5c3711d6aa85e41b2.fontdata"]
+source_file="res://assets/pixel_operator/PixelOperatorSC-Bold.ttf"
+dest_files=["res://.godot/imported/PixelOperatorSC-Bold.ttf-add9dd17edfecadf7223362c8770efea.fontdata"]
 
 [params]
 
